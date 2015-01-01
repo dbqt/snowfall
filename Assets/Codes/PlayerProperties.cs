@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerProperties : MonoBehaviour {
 
-	public float rollSpeed = 1;
+	public float rollSpeed = 1, speedCap = 5;
 	
 	// Update is called once per frame
 	void Update () {
@@ -17,5 +17,11 @@ public class PlayerProperties : MonoBehaviour {
 		if(this.gameObject.transform.position.x > 9)
 			pos.x = 9;
 		this.gameObject.transform.position = pos;
+
+		Vector3 vel = this.gameObject.rigidbody.velocity;
+		if(this.gameObject.rigidbody.velocity.z > speedCap)
+			vel.z = speedCap;
+		this.gameObject.rigidbody.velocity = vel;
+
 	}
 }
