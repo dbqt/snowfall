@@ -3,7 +3,9 @@ using System.Collections;
 
 public class PlayerProperties : MonoBehaviour {
 
-	public float rollSpeed = 1, speedCap = 5, growSpeed = 1;
+	public float rollSpeed = 1, speedCap = 5, growSpeed = 1, growCap = 4;
+
+	private float last = 0;
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -23,6 +25,13 @@ public class PlayerProperties : MonoBehaviour {
 		if(this.gameObject.rigidbody.velocity.z > speedCap)
 			vel.z = speedCap;
 		this.gameObject.rigidbody.velocity = vel;
+
+		//grow size
+		if(last - this.gameObject.transform.position.z > 1 && this.gameObject.transform.localScale.x < growCap)
+		{
+			this.gameObject.transform.localScale = this.gameObject.transform.localScale * growSpeed * 1.01f;
+			last = this.gameObject.transform.position.z;
+		}
 
 	}
 
