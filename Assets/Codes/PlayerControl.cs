@@ -5,7 +5,7 @@ public class PlayerControl : MonoBehaviour {
 	public float moveSpeed = 10;
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		//keyboard input
 		float direction = Input.GetAxis("Horizontal");

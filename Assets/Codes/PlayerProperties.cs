@@ -6,7 +6,7 @@ public class PlayerProperties : MonoBehaviour {
 	public float rollSpeed = 1, speedCap = 5, growSpeed = 1;
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		//simulate gravity
 		rigidbody.AddForce(Vector3.back * rollSpeed);
 
@@ -28,10 +28,7 @@ public class PlayerProperties : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other) {
 
-		if(other.transform.tag == "ground")
-			Debug.Log("Hitting ground");
-		
 		if(other.transform.tag != "ground")
-			Debug.Log("Hitting Somethingggg!");
+			this.gameObject.SendMessageUpwards("ObstacleHit");
 	}
 }

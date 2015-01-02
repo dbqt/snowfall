@@ -39,7 +39,7 @@ public class CycleGrounds : MonoBehaviour {
 		if(current)
 		{	
 			Vector3 pos = ground1.position;
-			pos.z -= 10;
+			pos.z -= 20;
 			Object.Destroy(ground0.gameObject);
 			ground0 = Instantiate(ground, pos, q) as Transform;
 			prevPos = pos.z;
@@ -48,7 +48,7 @@ public class CycleGrounds : MonoBehaviour {
 		else
 		{
 			Vector3 pos = ground0.position;
-			pos.z -= 10;
+			pos.z -= 20;
 			Object.Destroy(ground1.gameObject);
 			ground1 = Instantiate(ground, pos, q) as Transform;
 			prevPos = pos.z;

@@ -14,4 +14,13 @@ public class GameLogic : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void ObstacleHit(){
+		GameOver();
+	}
+
+	private void GameOver(){
+		Debug.Log("Game Over!");
+		Time.timeScale = 0f;
+	}
 }
