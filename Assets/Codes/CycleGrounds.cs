@@ -63,7 +63,7 @@ public class CycleGrounds : MonoBehaviour {
 	{
 		for(int i = 0; i < nbObstaclesPerGround ; i++)
 		{
-			Vector3 obsPos = new Vector3 (Random.Range(-9, 9), 1, Random.Range(-8, 5));
+			Vector3 obsPos = new Vector3 (Random.Range(-9, 9), 1, Random.Range(-8, 8));
 			obsPos = obsPos + startPoint;
 			Transform o = objectQueue.Dequeue();
 			o.localPosition = obsPos;
