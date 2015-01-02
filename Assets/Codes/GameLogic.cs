@@ -30,10 +30,12 @@ public class GameLogic : MonoBehaviour {
 	//gameover logic
 	private void GameOver(){
 		Debug.Log("Game Over!");
+		//check highscore and update is needed
 		if(PlayerPrefs.GetInt("PlayerScore") < (int)score)
 			PlayerPrefs.SetInt("PlayerScore", (int)score);
 		hs.text += PlayerPrefs.GetInt("PlayerScore");
-		Time.timeScale = 0f;
+		Time.timeScale = 0f; //stop the game
+		//show UI
 		restartBtn.SetActive(true);
 		menuBtn.SetActive(true);
 		hs.gameObject.SetActive(true);		
