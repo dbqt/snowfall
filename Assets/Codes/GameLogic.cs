@@ -15,10 +15,12 @@ public class GameLogic : MonoBehaviour {
 	
 	}
 
+	//called when player hit something
 	public void ObstacleHit(){
 		GameOver();
 	}
 
+	//gameover logic
 	private void GameOver(){
 		Debug.Log("Game Over!");
 		Time.timeScale = 0f;
