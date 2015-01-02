@@ -5,7 +5,7 @@ using System.Collections;
 public class GameLogic : MonoBehaviour {
 
 	public GameObject restartBtn, menuBtn, player;
-	public Text t;
+	public Text t, hs;
 	private float score;
 
 	// Use this for initialization
@@ -13,6 +13,7 @@ public class GameLogic : MonoBehaviour {
 		Time.timeScale = 1f;
 		restartBtn.SetActive(false);
 		menuBtn.SetActive(false);
+		hs.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -29,8 +30,12 @@ public class GameLogic : MonoBehaviour {
 	//gameover logic
 	private void GameOver(){
 		Debug.Log("Game Over!");
+		if(PlayerPrefs.GetInt("PlayerScore") < (int)score)
+			PlayerPrefs.SetInt("PlayerScore", (int)score);
+		hs.text += PlayerPrefs.GetInt("PlayerScore");
 		Time.timeScale = 0f;
 		restartBtn.SetActive(true);
-		menuBtn.SetActive(true);		
+		menuBtn.SetActive(true);
+		hs.gameObject.SetActive(true);		
 	}
 }
