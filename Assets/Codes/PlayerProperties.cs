@@ -38,7 +38,9 @@ public class PlayerProperties : MonoBehaviour {
 	//tell GameManager that player hit something
 	void OnCollisionEnter(Collision other) {
 
-		if(other.transform.tag != "ground")
+		if(other.transform.tag != "ground"){
 			this.gameObject.SendMessageUpwards("ObstacleHit");
+			audio.Play();
+		}
 	}
 }
